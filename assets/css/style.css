@@ -1,9 +1,16 @@
 /* Font */
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+body {
+  font-family: "Raleway", sans-serif !important;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body a {
+  text-decoration: none;
 }
 
 img {
@@ -41,15 +48,19 @@ nav li {
   bottom: 0;
 }
 
+.banner__slider {
+  position: relative;
+}
+
 .banner__details {
-  margin-bottom: 200px;
+  margin-bottom: 100px;
   z-index: 1;
 }
 .banner__details h1 {
   font-size: 4rem;
 }
 .banner__details p {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
 }
 
 .primary-button {
@@ -62,6 +73,13 @@ nav li {
   padding: 10px 40px;
 }
 
+.my__toast {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+}
+
 /* Packages */
 .packages li {
   list-style: none;
@@ -72,11 +90,11 @@ nav li {
 }
 #highlight {
   position: relative;
-  bottom: 70px;
+  bottom: 90px;
   right: 10px;
   background-image: linear-gradient(45deg, #5b54fa, #538ffb);
   border-radius: 20px;
-  padding: 50px 30px 30px;
+  padding: 50px 20px 30px;
   color: white;
 }
 .fa-check-circle {
@@ -91,6 +109,57 @@ nav li {
   border-radius: 50px !important;
 }
 
+/* album */
+.photo-album {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.photo-frame {
+  margin: 0 auto;
+  width: 300px;
+  height: 250px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  border: 5px solid var(--primary-color);
+}
+
+.photo {
+  height: 100%;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.photo-detail {
+  position: absolute;
+  width: 280px;
+  left: 5px;
+  bottom: -250px;
+  padding: 10px 10px 0;
+  color: #fff;
+  text-align: justify;
+  border-radius: 10px;
+  background-color: rgba(37, 90, 143, 0.479);
+  font-size: 0.6rem;
+}
+
+.photo-frame:hover .photo-detail {
+  bottom: 2px;
+  transition: 1s linear;
+}
+
+.photo-frame:hover .photo img {
+  transform: scale(1.2);
+  transition: 1s ease-in-out;
+}
+
 /* Footer */
 footer {
   padding: 50px 0;
@@ -103,6 +172,8 @@ footer img {
   width: 150px;
   border-radius: 5px;
 }
+
+/* Mobile Device Only */
 @media screen and (max-width: 540px) {
   /* Navbar */
   nav .nav__logo {
@@ -124,11 +195,11 @@ footer img {
   .banner__details h1 {
     font-size: 2rem;
   }
-  .banner__details p {
-    font-size: 1.2rem;
-  }
-
+  /* Package */
   #highlight {
     bottom: 5px;
+  }
+  .photo-album {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
